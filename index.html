@@ -8,17 +8,18 @@
 </head>
 <body>
   <h1>Student Task Manager</h1>
+  <p class="tagline">Add, complete, search and manage your study tasks.</p>
 
   <section id="task-form-section">
     <h2>Add a New Task</h2>
     <form id="task-form">
       <label for="task-title">Task Title</label>
-      <input type="text" id="task-title" placeholder="Enter task title" required>
+      <input type="text" id="task-title" placeholder="Enter task title" maxlength="80" required>
 
       <label for="task-description">Description</label>
       <textarea id="task-description" placeholder="Enter task description" rows="3"></textarea>
 
-      <button type="submit" id="add-task-btn">Add</button>
+      <button type="submit" id="add-task-btn">Add Task</button>
     </form>
   </section>
 
