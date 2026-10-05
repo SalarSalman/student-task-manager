@@ -4,6 +4,7 @@ const taskForm = document.getElementById("task-form");
 const titleInput = document.getElementById("task-title");
 const descInput = document.getElementById("task-description");
 const taskList = document.getElementById("task-list");
+const searchInput = document.getElementById("task-search");
 
 let tasks = [];
 let nextId = 1;
@@ -40,16 +41,26 @@ function deleteTask(id) {
   renderTasks();
 }
 
-// Render the task list
+// Live search filter (case-insensitive, matches the task title)
+if (searchInput) {
+  searchInput.addEventListener("input", renderTasks);
+}
+
+// Render the task list, applying the current search filter
 function renderTasks() {
-  const visible = tasks;
+  const query = searchInput ? searchInput.value.trim().toLowerCase() : "";
+  const visible = tasks.filter(function (t) {
+    return t.title.toLowerCase().includes(query);
+  });
 
   taskList.innerHTML = "";
 
   if (visible.length === 0) {
     const note = document.createElement("li");
     note.className = "empty-note";
-    note.textContent = "No tasks yet — add your first task above.";
+    note.textContent = tasks.length === 0
+      ? "No tasks yet — add your first task above."
+      : "No tasks match your search.";
     taskList.appendChild(note);
     return;
   }
