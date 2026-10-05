@@ -1,1 +1,138 @@
-/* Styles for Student Task Manager */
+/* Include padding and borders within element widths */
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Page appearance */
+  body {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 32px 20px;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  h1 {
+    margin-top: 0;
+    text-align: center;
+    color: #1e3a8a;
+  }
+  
+  h2 {
+    margin-top: 0;
+  }
+  
+  /* Form and task-list panels */
+  #task-form-section,
+  #task-list-section {
+    margin-bottom: 24px;
+    padding: 24px;
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+  }
+  
+  /* Form layout */
+  #task-form {
+    display: grid;
+    gap: 12px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  /* Input fields */
+  input,
+  textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #94a3b8;
+    border-radius: 6px;
+    background-color: white;
+    color: #1e293b;
+    font: inherit;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  /* Buttons */
+  button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: #1d4ed8;
+    color: white;
+    font: inherit;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #1e40af;
+  }
+  
+  #add-task-btn {
+    justify-self: start;
+    min-width: 110px;
+  }
+  
+  /* Keyboard focus */
+  input:focus-visible,
+  textarea:focus-visible,
+  button:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 3px;
+  }
+  
+  /* Task cards */
+  #task-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  #task-list li {
+    margin-bottom: 12px;
+    padding: 16px;
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    overflow-wrap: anywhere;
+  }
+  
+  #task-list li button {
+    margin: 6px 8px 0 0;
+  }
+  
+  /* Layout for smaller screens */
+  @media (max-width: 600px) {
+    body {
+      padding: 16px 12px;
+    }
+  
+    h1 {
+      font-size: 1.75rem;
+    }
+  
+    #task-form-section,
+    #task-list-section {
+      padding: 16px;
+    }
+  
+    #add-task-btn {
+      width: 100%;
+      justify-self: stretch;
+    }
+  
+    #task-list li button {
+      display: block;
+      width: 100%;
+      margin: 8px 0 0;
+    }
+  }
