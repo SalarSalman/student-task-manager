@@ -1,138 +1,246 @@
+/* ===== Student Task Manager — styling by Student 2 (feature/task-style) ===== */
+
 /* Include padding and borders within element widths */
 * {
-    box-sizing: border-box;
-  }
-  
-  /* Page appearance */
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  --bg: #eef2f7;
+  --panel: #ffffff;
+  --ink: #1e293b;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  --accent: #4f46e5;
+  --accent-dark: #4338ca;
+  --green: #16a34a;
+  --red: #dc2626;
+}
+
+/* Page appearance */
+body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+  background: linear-gradient(180deg, #e0e7ff 0%, var(--bg) 220px);
+  color: var(--ink);
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Header */
+h1 {
+  text-align: center;
+  font-size: 2.1rem;
+  color: #312e81;
+  letter-spacing: -0.5px;
+}
+
+.tagline {
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+h2 {
+  font-size: 1.1rem;
+  margin-bottom: 14px;
+  color: #334155;
+}
+
+/* Form and task-list panels */
+#task-form-section,
+#task-list-section {
+  margin-bottom: 22px;
+  padding: 24px;
+  background-color: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.07);
+}
+
+/* Form layout */
+#task-form {
+  display: grid;
+  gap: 10px;
+}
+
+#task-form label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+#task-form input,
+#task-form textarea,
+#task-search {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font: inherit;
+  color: var(--ink);
+  background: #f8fafc;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+#task-form input:focus,
+#task-form textarea:focus,
+#task-search:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+  background: #fff;
+}
+
+#add-task-btn {
+  margin-top: 6px;
+  padding: 11px 16px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.05s;
+}
+
+#add-task-btn:hover {
+  background: var(--accent-dark);
+}
+
+#add-task-btn:active {
+  transform: scale(0.99);
+}
+
+/* Search box */
+#task-search {
+  margin-bottom: 16px;
+}
+
+/* Task list */
+#task-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.task-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  background: #fff;
+  transition: box-shadow 0.15s;
+}
+
+.task-item:hover {
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.task-item .task-title {
+  font-weight: 600;
+}
+
+.task-item .task-desc {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Completed state */
+.task-item.completed {
+  border-left-color: var(--green);
+  background: #f6fdf8;
+  opacity: 0.75;
+}
+
+.task-item.completed .task-title {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+/* Task action buttons */
+.task-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.task-actions button {
+  padding: 6px 12px;
+  border-radius: 7px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #fff;
+  transition: background 0.15s, color 0.15s;
+}
+
+.complete-btn {
+  border: 1px solid var(--green);
+  color: var(--green);
+}
+
+.complete-btn:hover {
+  background: var(--green);
+  color: #fff;
+}
+
+.delete-btn {
+  border: 1px solid var(--red);
+  color: var(--red);
+}
+
+.delete-btn:hover {
+  background: var(--red);
+  color: #fff;
+}
+
+/* Empty state */
+.empty-note {
+  text-align: center;
+  color: var(--muted);
+  padding: 18px 0;
+}
+
+/* Responsive layout for small screens */
+@media (max-width: 600px) {
   body {
-    max-width: 850px;
-    margin: 0 auto;
-    padding: 32px 20px;
-    background-color: #f1f5f9;
-    color: #1e293b;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+    padding: 24px 14px 40px;
   }
-  
+
   h1 {
-    margin-top: 0;
-    text-align: center;
-    color: #1e3a8a;
+    font-size: 1.6rem;
   }
-  
-  h2 {
-    margin-top: 0;
-  }
-  
-  /* Form and task-list panels */
+
   #task-form-section,
   #task-list-section {
-    margin-bottom: 24px;
-    padding: 24px;
-    background-color: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
-  }
-  
-  /* Form layout */
-  #task-form {
-    display: grid;
-    gap: 12px;
-  }
-  
-  label {
-    font-weight: bold;
-  }
-  
-  /* Input fields */
-  input,
-  textarea {
-    width: 100%;
-    min-width: 0;
-    padding: 12px;
-    border: 1px solid #94a3b8;
-    border-radius: 6px;
-    background-color: white;
-    color: #1e293b;
-    font: inherit;
-  }
-  
-  textarea {
-    resize: vertical;
-  }
-  
-  /* Buttons */
-  button {
-    padding: 10px 16px;
-    border: none;
-    border-radius: 6px;
-    background-color: #1d4ed8;
-    color: white;
-    font: inherit;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #1e40af;
-  }
-  
-  #add-task-btn {
-    justify-self: start;
-    min-width: 110px;
-  }
-  
-  /* Keyboard focus */
-  input:focus-visible,
-  textarea:focus-visible,
-  button:focus-visible {
-    outline: 3px solid #2563eb;
-    outline-offset: 3px;
-  }
-  
-  /* Task cards */
-  #task-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  
-  #task-list li {
-    margin-bottom: 12px;
     padding: 16px;
-    background-color: #f8fafc;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    overflow-wrap: anywhere;
   }
-  
-  #task-list li button {
-    margin: 6px 8px 0 0;
+
+  .task-item {
+    flex-direction: column;
   }
-  
-  /* Layout for smaller screens */
-  @media (max-width: 600px) {
-    body {
-      padding: 16px 12px;
-    }
-  
-    h1 {
-      font-size: 1.75rem;
-    }
-  
-    #task-form-section,
-    #task-list-section {
-      padding: 16px;
-    }
-  
-    #add-task-btn {
-      width: 100%;
-      justify-self: stretch;
-    }
-  
-    #task-list li button {
-      display: block;
-      width: 100%;
-      margin: 8px 0 0;
-    }
+
+  .task-actions {
+    width: 100%;
   }
+
+  .task-actions button {
+    flex: 1;
+    padding: 10px;
+  }
+
+  #add-task-btn {
+    width: 100%;
+  }
+}
