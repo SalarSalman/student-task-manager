@@ -244,3 +244,22 @@ h2 {
     width: 100%;
   }
 }
+
+/* Fix layout issues on small screens (issue #4) */
+.task-title,
+.task-desc {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  #task-form input,
+  #task-form textarea,
+  #task-search {
+    font-size: 16px;
+  }
+
+  #add-task-btn,
+  .task-actions button {
+    min-height: 44px;
+  }
+}
