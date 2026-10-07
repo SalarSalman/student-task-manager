@@ -1,4 +1,4 @@
-# Student Task Management System
+# Student Task Management Application
 
 A simple web application that lets students add tasks, mark them as completed, delete them, and search through them. Built as a pair assignment to practice a real Git and GitHub collaborative workflow.
 
